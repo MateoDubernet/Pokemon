@@ -1,0 +1,71 @@
+.viewPokemonData{
+    width: 800px;
+    height: 500px;
+
+     display: grid;
+     //grid-template-rows: repeat(4, 1fr);
+     grid-template-rows: 12%[row1] repeat(3, 25%)[row2 row3] 10%[row4];
+     align-content: space-between;
+
+     >div{
+        border: solid 1px rgb(240, 121, 121);
+        display: grid;
+
+        >div:not(:last-child), img:not(:last-child){
+           border-right: rgb(240, 121, 121) 1px solid;
+
+            h1{
+               margin: 0%;
+            }
+        }
+        >div, img{
+        margin-left: 10px;
+      }
+    }
+
+     .row1{
+        grid-template-columns: repeat(3, 25%);
+     }
+
+     .row2{
+      grid-template-columns: repeat(3, 15%);
+
+         .statName, .baseStat{
+         border: none;
+         margin-top: 10px;
+         }
+      }
+
+      .row3, .row4{
+         grid-template-columns: repeat(2, 15%);
+         place-items: center;
+         img{
+            width: 100%;
+         }
+      }
+
+     .row5{
+        grid-template-columns: repeat(2, 2fr);
+     }
+
+     .row1, .row5{
+        place-items: center stretch;
+     }
+}
+
+.name-bar{
+   margin-bottom: 15px;
+}
+.name-bar, .multi-select-bar{
+   box-shadow: 0px 0px 1px black;
+}
+
+kendo-dialog-actions{
+   button{
+      box-shadow: 0px 0px 1px black;
+   }
+}
+
+.types-selected{
+   margin: 5px 0 15px 5px;
+}
