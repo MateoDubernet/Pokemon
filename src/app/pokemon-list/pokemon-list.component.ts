@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { PokemonService } from '../services/pokemon.service';
-import { HttpClient } from "@angular/common/http";
+import { Component, OnInit } from "@angular/core";
+import { PokemonService } from '../services/pokemon-service';
 import { Pokemon } from '../models/pokemon.model';
-import { PokemonPreviewComponent } from "../pokemon-preview/pokemon-preview.component";
+import { PokemonHttpService } from "../services/pokemon-http-service";
 
 @Component({
   selector: 'app-pokemon-list',
@@ -11,43 +10,42 @@ import { PokemonPreviewComponent } from "../pokemon-preview/pokemon-preview.comp
 })
 export class PokemonListComponent implements OnInit {
  
-  private MAX_POKEMONS:number = 10;
+  public pokemonSelected!: Pokemon;
+  public isFormOpen = false;
+  public isPreviewOpen = false;
 
-  informationButtonStatue: boolean = false;
-  modifButtonStatus: boolean = false;
-  pokemonSelected!: Pokemon;
-  
-  constructor(public pokemonService: PokemonService,
-              private http: HttpClient){}
+  private MAX_POKEMONS:number = 25;
+
+  get filteredPokemons() {
+    return this.pokemonService.filteredPokemons;
+  }
+
+  constructor(private pokemonService: PokemonService) {}
 
   ngOnInit() {
-      this.pokemonService.getPokemonlist(this.MAX_POKEMONS);
+    this.pokemonService.getPokemon(this.MAX_POKEMONS);
   }
 
-  onClickInformationPokemon(pokemon: Pokemon){
-      this.pokemonSelected = pokemon;
-
-      if (this.informationButtonStatue === false) {
-          this.informationButtonStatue = true;
-      }
+  pokemonFilter(value: string) {
+    this.pokemonService.pokemonFilter(value);
   }
 
-  onClickModifierPokemon(pokemon: Pokemon){
-    // console.log("+++ onClickModifierPokemon=",pokemon)
+  resetPokemonData() {
+    this.pokemonService.getPokemon(this.MAX_POKEMONS);
+  }
+
+  openPreview(pokemon: Pokemon) {
     this.pokemonSelected = pokemon;
-
-    if (this.modifButtonStatus === false) {
-        this.modifButtonStatus = true;
-    }
-}
-
-public onWindowPreviewStateChange(windowOpenState:boolean){
-    this.informationButtonStatue = windowOpenState;
-    this.modifButtonStatus = windowOpenState;
+    this.isPreviewOpen = true;
   }
 
-  public resetPokemonData(){
-    this.pokemonService.getPokemonlist(this.MAX_POKEMONS);
-    //console.log(pokemon);
+  openForm(pokemon: Pokemon) {
+    this.pokemonSelected = pokemon;
+    this.isFormOpen = true;
+  }
+
+  onDialogStateChange(windowOpenState: boolean){
+    this.isPreviewOpen = windowOpenState;
+    this.isFormOpen = windowOpenState;
   }
 }

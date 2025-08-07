@@ -1,49 +1,50 @@
-<header>
+<div class="main">
     <nav>
         <kendo-autocomplete class="searchBar"
-            placeholder="Chercher par Nom" 
-            [data]="this.pokemonService.filterPokemon"
+            placeholder="Rechercher par Nom" 
+            [data]="filteredPokemons"
             [filterable]="true"
             valueField="name"
-            (filterChange)="this.pokemonService.pokemonFilter($event)"
-            (valueChange)="this.pokemonService.pokemonFilter($event)">
+            (filterChange)="pokemonFilter($event)"
+            (valueChange)="pokemonFilter($event)">
         </kendo-autocomplete>
     </nav>
-</header>
 
-<div class="pokemons-content">
-    <table class="pokemons-table">
-        <tr>
-            <td>Name</td>
-            <td>Index</td>
-            <td>Sprite Front</td>
-            <td>Sprite Back</td>
-            <td>Types</td>
-            <td>Informations</td>
-            <td>Modifier</td>
-            <td class="reset"><button (click)="resetPokemonData()">Reset All</button></td>
-        </tr>
-        <tr *ngFor="let pokemon of this.pokemonService.filterPokemon" class="pokeApi">
-            <td>{{pokemon.name | titlecase}}</td>
-            <td>N°{{pokemon.id}}</td>
-            <td><img [src]="pokemon.spriteFrontUrl" alt="pokemon"></td>
-            <td><img [src]="pokemon.spriteBackUrl" alt="pokemon"></td>
-            <td><div  *ngFor="let pokemontypes of pokemon.type">{{pokemontypes | titlecase}}</div></td>
-            <td><button (click)="onClickInformationPokemon(pokemon)">Informations</button></td>
-            <td><button (click)="onClickModifierPokemon(pokemon)">Modifier</button></td>
-        </tr>
-    </table>
+    <div class="pokemon-list">
+        <table class="pokemon-table">
+            <tr class="table-header">
+                <th>Name</th>
+                <th>Index</th>
+                <th>Sprite Front</th>
+                <th>Sprite Back</th>
+                <th>Types</th>
+                <th>Informations</th>
+                <th>Modifier</th>
+                <th class="reset"><button kendoButton (click)="resetPokemonData()">Reset All</button></th>
+            </tr>
+
+            <tr *ngFor="let pokemon of filteredPokemons" class="table-body">
+                <td>{{pokemon.name | titlecase}}</td>
+                <td>N°{{pokemon.id}}</td>
+                <td><img [src]="pokemon.spriteFrontUrl" alt="pokemon"></td>
+                <td><img [src]="pokemon.spriteBackUrl" alt="pokemon"></td>
+                <td><div *ngFor="let pokemontypes of pokemon.type">{{pokemontypes | titlecase}}</div></td>
+                <td><button kendoButton (click)="openPreview(pokemon)">Informations</button></td>
+                <td><button kendoButton (click)="openForm(pokemon)">Modifier</button></td>
+            </tr>
+        </table>
+    </div>
 </div>
 
-<app-pokemon-preview #mypokpreview
+<app-pokemon-preview
 [dataPokemon]="pokemonSelected"
-[windowDisplay]="informationButtonStatue" 
-(windowDisplayChange)="onWindowPreviewStateChange($event)" 
+[windowDisplay]="isPreviewOpen" 
+(windowDisplayChange)="onDialogStateChange($event)" 
 class="dataWindow">
 </app-pokemon-preview>
 
 <app-pokemon-form
 [dataPokemon]="pokemonSelected" 
-[dialogDisplay]="modifButtonStatus"
-(windowDisplayChange)="onWindowPreviewStateChange($event)">
+[dialogDisplay]="isFormOpen"
+(windowDisplayChange)="onDialogStateChange($event)">
 </app-pokemon-form>
