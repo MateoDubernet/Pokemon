@@ -1,20 +1,18 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../services/pokemon-service';
 import { Pokemon } from '../models/pokemon.model';
-import { PokemonHttpService } from "../services/pokemon-http-service";
 
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
-  styleUrls: ['./pokemon-list.component.scss']
+  styleUrls: ['./pokemon-list.component.scss'],
 })
 export class PokemonListComponent implements OnInit {
- 
   public pokemonSelected!: Pokemon;
   public isFormOpen = false;
   public isPreviewOpen = false;
 
-  private MAX_POKEMONS:number = 25;
+  private MAX_POKEMONS: number = 25;
 
   get filteredPokemons() {
     return this.pokemonService.filteredPokemons;
@@ -44,7 +42,7 @@ export class PokemonListComponent implements OnInit {
     this.isFormOpen = true;
   }
 
-  onDialogStateChange(windowOpenState: boolean){
+  onDialogStateChange(windowOpenState: boolean) {
     this.isPreviewOpen = windowOpenState;
     this.isFormOpen = windowOpenState;
   }

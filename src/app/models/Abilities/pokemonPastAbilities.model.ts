@@ -1,7 +1,7 @@
-import { DataNameAndUrl } from "../dataNameAndUrl";
-import { PokemonAbilities } from "./pokemonAbilities.model";
+import { DataNameAndUrl } from '../dataNameAndUrl';
+import { PokemonAbilities } from './pokemonAbilities.model';
 
 export class PokemonPastAbilities {
-    abilities!: PokemonAbilities;
-    generation!: DataNameAndUrl;
+  abilities!: PokemonAbilities;
+  generation!: DataNameAndUrl;
 }

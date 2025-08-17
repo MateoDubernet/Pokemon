@@ -1,65 +1,55 @@
-<kendo-dialog
-title="{{dataPokemon.name | titlecase}}"
-*ngIf="windowDisplay" 
-(close)="closeWindow()">
-
-    <div class="pokemon-data-grid">
-        <div class="row1">
-            <div class="name"><h1>{{dataPokemon.name | titlecase}}</h1></div>
-            <div class="id">Pokémon N° {{dataPokemon.id}}</div> 
-            <div class="type-section">
-                Type:&nbsp;
-                <div class="type" *ngFor="let pokemontypes of dataPokemon.type">
-                    {{pokemontypes | titlecase}}&nbsp;
-                </div>
-            </div>
-        </div>
-       
-        <div class="row2">
-            <div class="stats">
-                <div class="stats-names" >
-                    <div class="stat-name" *ngFor="let pokemonStat of dataPokemon.statsName">
-                        {{pokemonStat | titlecase}}:
-                    </div>
-                </div>
-
-                <div class="base-stats">
-                    <div class="base-stat" *ngFor="let baseStat of dataPokemon.baseStat">
-                        {{baseStat}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="abilities-section">
-                <div class="abilities">
-                    Ability:&nbsp;
-                    <div class="ability" *ngFor="let pokemonAbility of dataPokemon.ability">
-                        {{pokemonAbility | titlecase}}<span *ngIf="pokemonAbility !== getLastAbility(dataPokemon.ability)">,&nbsp;</span>
-                    </div>
-                </div>
-
-                <div class="hidden-abilities">
-                    Hidden Ability:&nbsp;
-                    <div class="hidden-ability" *ngFor="let pokemonHiddenAbility of dataPokemon.hiddenAbility">
-                        {{pokemonHiddenAbility | titlecase}}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row3">
-            <img [src]="dataPokemon.spriteFrontUrl" [alt]="dataPokemon.name">
-            <img [src]="dataPokemon.spriteBackUrl" [alt]="dataPokemon.name">
-        </div>
-
-        <div class="row4">
-            <img [src]="dataPokemon.spriteFrontShinyUrl" [alt]="dataPokemon.name">
-            <img [src]="dataPokemon.spriteBackUrlShiny" [alt]="dataPokemon.name">
-        </div>
-
-        <div class="row5">
-            <div class="weight">Poids: {{dataPokemon.weight}} kg</div>
-            <div class="height">Taille: {{dataPokemon.height}} m</div>
-        </div>
+<kendo-dialog title="{{dataPokemon.name | titlecase}}" *ngIf="windowDisplay" (close)="closeWindow()">
+  <div class="pokemon-data-grid">
+    <div class="row1">
+      <div class="name"><h1>{{dataPokemon.name | titlecase}}</h1></div>
+      <div class="id">Pokémon N° {{dataPokemon.id}}</div>
+      <div class="type-section">
+        Type:&nbsp;
+        <div class="type" *ngFor="let pokemontypes of dataPokemon.type">{{pokemontypes | titlecase}}&nbsp;</div>
+      </div>
     </div>
+
+    <div class="row2">
+      <div class="stats">
+        <div class="stats-names">
+          <div class="stat-name" *ngFor="let pokemonStat of dataPokemon.statsName">{{pokemonStat | titlecase}}:</div>
+        </div>
+
+        <div class="base-stats">
+          <div class="base-stat" *ngFor="let baseStat of dataPokemon.baseStat">{{baseStat}}</div>
+        </div>
+      </div>
+
+      <div class="abilities-section">
+        <div class="abilities">
+          Ability:&nbsp;
+          <div class="ability" *ngFor="let pokemonAbility of dataPokemon.ability">
+            {{pokemonAbility | titlecase}}<span *ngIf="pokemonAbility !== getLastAbility(dataPokemon.ability)">,&nbsp;</span>
+          </div>
+        </div>
+
+        <div class="hidden-abilities">
+          Hidden Ability:&nbsp;
+          <div class="hidden-ability" *ngFor="let pokemonHiddenAbility of dataPokemon.hiddenAbility">
+            {{pokemonHiddenAbility | titlecase}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row3">
+      <img [src]="dataPokemon.spriteFrontUrl" [alt]="dataPokemon.name" />
+      <img [src]="dataPokemon.spriteBackUrl" [alt]="dataPokemon.name" />
+    </div>
+
+    <div class="row4">
+      <img [src]="dataPokemon.spriteFrontShinyUrl" [alt]="dataPokemon.name" />
+      <img [src]="dataPokemon.spriteBackUrlShiny" [alt]="dataPokemon.name" />
+    </div>
+
+    <div class="row5">
+      <div class="weight">Poids: {{dataPokemon.weight}} kg</div>
+      <div class="height">Taille: {{dataPokemon.height}} m</div>
+    </div>
+  </div>
 </kendo-dialog>

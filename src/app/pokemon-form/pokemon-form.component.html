@@ -1,43 +1,27 @@
-<kendo-dialog 
-title="{{dataPokemon.name | titlecase}}"
-*ngIf="dialogDisplay" 
-(close)="cancel()">
-    <form [formGroup]="pokemonFormGroup" class="k-form">
-        <kendo-formfield>
-            <label for="name">Name</label>
-            <kendo-textbox
-                #name
-                type="text"
-                formControlName="name">
-            </kendo-textbox>
+<kendo-dialog title="{{dataPokemon.name | titlecase}}" *ngIf="dialogDisplay" (close)="cancel()">
+  <form [formGroup]="pokemonFormGroup" class="k-form">
+    <kendo-formfield>
+      <label for="name">Name</label>
+      <kendo-textbox #name type="text" formControlName="name"> </kendo-textbox>
 
-            <kendo-formerror *ngIf="pokemonFormGroup.controls['name'].errors?.['required']">
-                Please enter a name
-            </kendo-formerror>
-        </kendo-formfield>
+      <kendo-formerror *ngIf="pokemonFormGroup.controls['name'].errors?.['required']"> Please enter a name </kendo-formerror>
+    </kendo-formfield>
 
-        <kendo-formfield>
-            <label for="types">Type</label>
-            <kendo-multiselect 
-                #types
-                [data]="filteredTypes" 
-                [filterable]="true"
-                (filterChange)="typeFilter($event)"
-                formControlName="type">
-            </kendo-multiselect>
+    <kendo-formfield>
+      <label for="types">Type</label>
+      <kendo-multiselect #types [data]="filteredTypes" [filterable]="true" (filterChange)="typeFilter($event)" formControlName="type">
+      </kendo-multiselect>
 
-            <kendo-formerror *ngIf="pokemonFormGroup.controls['type'].errors?.['maxlength']">
-                A pokemon can only have two types
-            </kendo-formerror>
+      <kendo-formerror *ngIf="pokemonFormGroup.controls['type'].errors?.['maxlength']"> A pokemon can only have two types </kendo-formerror>
 
-            <kendo-formerror *ngIf="pokemonFormGroup.controls['type'].errors?.['required']">
-                A pokemon need to have at least one type
-            </kendo-formerror>
-        </kendo-formfield>
-    </form>
+      <kendo-formerror *ngIf="pokemonFormGroup.controls['type'].errors?.['required']">
+        A pokemon need to have at least one type
+      </kendo-formerror>
+    </kendo-formfield>
+  </form>
 
-    <kendo-dialog-actions>
-        <button kendoButton (click)="cancel()">Annuler</button>
-        <button kendoButton class="k-primary" (click)="validate()">Valider</button>
-    </kendo-dialog-actions>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="cancel()">Annuler</button>
+    <button kendoButton class="k-primary" (click)="validate()">Valider</button>
+  </kendo-dialog-actions>
 </kendo-dialog>

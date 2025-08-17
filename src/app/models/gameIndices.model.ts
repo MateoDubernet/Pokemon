@@ -1,6 +1,6 @@
-import { DataNameAndUrl } from "./dataNameAndUrl";
+import { DataNameAndUrl } from './dataNameAndUrl';
 
 export class GameIndices {
-    game_index!: number;
-    version!: DataNameAndUrl;
+  game_index!: number;
+  version!: DataNameAndUrl;
 }

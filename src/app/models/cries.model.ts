@@ -1,4 +1,4 @@
 export class Cries {
-    latest!: string;
-    legacy!: string;
+  latest!: string;
+  legacy!: string;
 }

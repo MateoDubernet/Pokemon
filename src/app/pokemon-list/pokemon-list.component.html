@@ -1,50 +1,50 @@
 <div class="main">
-    <nav>
-        <kendo-autocomplete class="searchBar"
-            placeholder="Rechercher par Nom" 
-            [data]="filteredPokemons"
-            [filterable]="true"
-            valueField="name"
-            (filterChange)="pokemonFilter($event)"
-            (valueChange)="pokemonFilter($event)">
-        </kendo-autocomplete>
-    </nav>
+  <nav>
+    <kendo-autocomplete
+      class="searchBar"
+      placeholder="Rechercher par Nom"
+      [data]="filteredPokemons"
+      [filterable]="true"
+      valueField="name"
+      (filterChange)="pokemonFilter($event)"
+      (valueChange)="pokemonFilter($event)"
+    >
+    </kendo-autocomplete>
+  </nav>
 
-    <div class="pokemon-list">
-        <table class="pokemon-table">
-            <tr class="table-header">
-                <th>Name</th>
-                <th>Index</th>
-                <th>Sprite Front</th>
-                <th>Sprite Back</th>
-                <th>Types</th>
-                <th>Informations</th>
-                <th>Modifier</th>
-                <th class="reset"><button kendoButton (click)="resetPokemonData()">Reset All</button></th>
-            </tr>
+  <div class="pokemon-list">
+    <table class="pokemon-table">
+      <tr class="table-header">
+        <th>Name</th>
+        <th>Index</th>
+        <th>Sprite Front</th>
+        <th>Sprite Back</th>
+        <th>Types</th>
+        <th>Informations</th>
+        <th>Modifier</th>
+        <th class="reset"><button kendoButton (click)="resetPokemonData()">Reset All</button></th>
+      </tr>
 
-            <tr *ngFor="let pokemon of filteredPokemons" class="table-body">
-                <td>{{pokemon.name | titlecase}}</td>
-                <td>N°{{pokemon.id}}</td>
-                <td><img [src]="pokemon.spriteFrontUrl" alt="pokemon"></td>
-                <td><img [src]="pokemon.spriteBackUrl" alt="pokemon"></td>
-                <td><div *ngFor="let pokemontypes of pokemon.type">{{pokemontypes | titlecase}}</div></td>
-                <td><button kendoButton (click)="openPreview(pokemon)">Informations</button></td>
-                <td><button kendoButton (click)="openForm(pokemon)">Modifier</button></td>
-            </tr>
-        </table>
-    </div>
+      <tr *ngFor="let pokemon of filteredPokemons" class="table-body">
+        <td>{{pokemon.name | titlecase}}</td>
+        <td>N°{{pokemon.id}}</td>
+        <td><img [src]="pokemon.spriteFrontUrl" alt="pokemon" /></td>
+        <td><img [src]="pokemon.spriteBackUrl" alt="pokemon" /></td>
+        <td><div *ngFor="let pokemontypes of pokemon.type">{{pokemontypes | titlecase}}</div></td>
+        <td><button kendoButton (click)="openPreview(pokemon)">Informations</button></td>
+        <td><button kendoButton (click)="openForm(pokemon)">Modifier</button></td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 <app-pokemon-preview
-[dataPokemon]="pokemonSelected"
-[windowDisplay]="isPreviewOpen" 
-(windowDisplayChange)="onDialogStateChange($event)" 
-class="dataWindow">
+  [dataPokemon]="pokemonSelected"
+  [windowDisplay]="isPreviewOpen"
+  (windowDisplayChange)="onDialogStateChange($event)"
+  class="dataWindow"
+>
 </app-pokemon-preview>
 
-<app-pokemon-form
-[dataPokemon]="pokemonSelected" 
-[dialogDisplay]="isFormOpen"
-(windowDisplayChange)="onDialogStateChange($event)">
+<app-pokemon-form [dataPokemon]="pokemonSelected" [dialogDisplay]="isFormOpen" (windowDisplayChange)="onDialogStateChange($event)">
 </app-pokemon-form>

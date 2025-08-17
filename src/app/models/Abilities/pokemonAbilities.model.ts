@@ -1,7 +1,7 @@
-import { DataNameAndUrl } from "../dataNameAndUrl";
+import { DataNameAndUrl } from '../dataNameAndUrl';
 
 export class PokemonAbilities {
-    ability!: DataNameAndUrl;
-    is_hidden!: boolean;
-    slot!: number;
+  ability!: DataNameAndUrl;
+  is_hidden!: boolean;
+  slot!: number;
 }

@@ -1,18 +1,16 @@
-import { Component, OnInit, Input, Output, EventEmitter} from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Pokemon } from '../models/pokemon.model';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { PokemonService } from "../services/pokemon-service";
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PokemonService } from '../services/pokemon-service';
 
 @Component({
   selector: 'app-pokemon-form',
   templateUrl: './pokemon-form.component.html',
-  styleUrls: ['./pokemon-form.component.scss']
+  styleUrls: ['./pokemon-form.component.scss'],
 })
-
 export class PokemonFormComponent implements OnInit {
-
   @Input() dialogDisplay!: boolean;
-  @Input() set dataPokemon(value:Pokemon) {
+  @Input() set dataPokemon(value: Pokemon) {
     this._dataPokemon = value;
     this.pokemonFormGroup.reset(value);
   }
@@ -20,7 +18,7 @@ export class PokemonFormComponent implements OnInit {
   get dataPokemon() {
     return this._dataPokemon;
   }
-  
+
   @Output() windowDisplayChange = new EventEmitter<boolean>();
   @Output() pokemonNameFormValue = new EventEmitter<string>();
 
@@ -33,9 +31,9 @@ export class PokemonFormComponent implements OnInit {
     return this.pokemonService.filteredTypes;
   }
 
-  private _dataPokemon!:Pokemon;
+  private _dataPokemon!: Pokemon;
 
-  constructor(private pokemonService: PokemonService){}
+  constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
     this.pokemonService.getAllTypes();
@@ -46,7 +44,7 @@ export class PokemonFormComponent implements OnInit {
     this.windowDisplayChange.emit(this.dialogDisplay);
   }
 
-  cancel(){
+  cancel() {
     this.closeDialog();
     this.pokemonFormGroup.reset(this.dataPokemon);
   }

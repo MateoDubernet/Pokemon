@@ -1,6 +1,6 @@
-import { DataNameAndUrl } from "../dataNameAndUrl";
+import { DataNameAndUrl } from '../dataNameAndUrl';
 
 export class PokemonHeldItemsVersionDetails {
-    rarity!: number;
-    version!: DataNameAndUrl;
+  rarity!: number;
+  version!: DataNameAndUrl;
 }

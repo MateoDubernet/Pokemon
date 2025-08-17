@@ -1,6 +1,6 @@
-import { DataNameAndUrl } from "../dataNameAndUrl";
+import { DataNameAndUrl } from '../dataNameAndUrl';
 
 export class PokemonType {
-    slot!: number;
-    type!: DataNameAndUrl;
+  slot!: number;
+  type!: DataNameAndUrl;
 }
