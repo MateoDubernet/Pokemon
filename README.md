@@ -3,7 +3,8 @@
 ## Contexte
 
 ### Description
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+Il s'agit d'un projet réaliser durant mon alternance dans le but de me former aux framework Angular.
+Ce projet utilise l'api PokéAPI pour récupérer une liste de Pokemon et l'afficher.
 
 ---
 
@@ -37,3 +38,10 @@ ou
 
 ### 4. Ouvrir l'application
 Aller à l'adresse localhost:4200
+
+---
+
+## Fonctionnalités
+- Affiche une liste de pokémons
+- Possibilités de filtrer en fonction du nom
+- Possibilités de modifier le nom et type d'un pokemon
