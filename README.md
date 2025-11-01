@@ -28,10 +28,6 @@ Ce projet utilise l'api PokéAPI pour récupérer une liste de Pokemon et l'affi
 
 ### 2. Installer les dépendances
 ```bash
-    npm install
-```
-ou
-```bash
     npm install --force
 ```
 
