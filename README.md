@@ -19,7 +19,11 @@ Ce projet utilise l'api PokéAPI pour récupérer une liste de Pokemon et l'affi
 ### 1. Cloner le projet
 ```bash
     git clone <url-du-repo>
-    cd <nom-du-dossier>
+```
+
+### 2. Aller sur le projet
+```bash
+  cd <nom-du-dossier>
 ```
 
 ### 2. Installer les dépendances
