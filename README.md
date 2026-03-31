@@ -1,47 +1,38 @@
 # Pokemon App
 
-## Contexte
+## Présentation
+Il s'agit d'un projet réaliser durant mon alternance dans le but de me former aux framework Angular. Ce projet utilise l'api PokéAPI pour récupérer une liste de Pokemon et l'afficher.
 
-### Description
-Il s'agit d'un projet réaliser durant mon alternance dans le but de me former aux framework Angular.
-Ce projet utilise l'api PokéAPI pour récupérer une liste de Pokemon et l'afficher.
-
----
-
-## Prérequis
-
-- Node.js et npm installés
-- Angular CLI installé globalement (`npm install -g @angular/cli`)
+### Architecture :
+- **Front-end** : Angular & TypeScript (Interface interactive et gestion d'état).
 
 ---
 
-## Installation & Lancement
-### 1. Cloner le projet
+## Installation et Lancement
+### 1. Clonage du dépôt
 ```bash
     git clone https://github.com/MateoDubernet/Pokemon.git
 ```
 
-### 2. Aller sur le projet
+### 2. Lancement (Docker)
+**Prérequis :** [Docker Desktop](https://www.docker.com/products/docker-desktop) installé et lancé.
+
 ```bash
-  cd Pokemon
+    cd ./pokemon
+    docker-compose up --build
 ```
 
-### 2. Installer les dépendances
-```bash
-    npm install --force
-```
+### 3. Accès
+- Interface Client : http://localhost (Port 80)
 
-### 3. Lancer l’application
-```bash
-    ng serve
-```
-
-### 4. Ouvrir l'application
-Aller à l'adresse localhost:4200
+[!IMPORTANT]
+Assurez-vous que le port 80 n'est pas déjà utilisé par une autre application sur votre machine avant de lancer le conteneur.
 
 ---
 
-## Fonctionnalités
-- Affiche une liste de pokémons
-- Possibilités de filtrer en fonction du nom
-- Possibilités de modifier le nom et type d'un pokemon
+## Fonctionnement du Système
+1. Affiche une liste de pokémons
+
+2. Possibilités de filtrer en fonction du nom
+
+3. Possibilités de modifier le nom et type d'un pokemon
