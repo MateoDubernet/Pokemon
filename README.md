@@ -3,8 +3,9 @@
 ## Présentation
 Il s'agit d'un projet réaliser durant mon alternance dans le but de me former aux framework Angular. Ce projet utilise l'api PokéAPI pour récupérer une liste de Pokemon et l'afficher.
 
-### Architecture :
-- **Front-end** : Angular & TypeScript (Interface interactive et gestion d'état).
+### Stack Technique
+- **Angular**.
+- **Docker**.
 
 ---
 
@@ -17,16 +18,16 @@ Il s'agit d'un projet réaliser durant mon alternance dans le but de me former a
 ### 2. Lancement (Docker)
 **Prérequis :** [Docker Desktop](https://www.docker.com/products/docker-desktop) installé et lancé.
 
+[!IMPORTANT]
+Assurez-vous que le port 80 n'est pas déjà utilisé par une autre application sur votre machine avant de lancer le conteneur.
+
 ```bash
     cd ./pokemon
     docker-compose up --build
 ```
 
 ### 3. Accès
-- **Interface Client** : http://localhost (Port 80)
-
-[!IMPORTANT]
-Assurez-vous que le port 80 n'est pas déjà utilisé par une autre application sur votre machine avant de lancer le conteneur.
+Ouvrir un navigateur web et aller à l'adresse: http://localhost
 
 ---
 
@@ -35,4 +36,4 @@ Assurez-vous que le port 80 n'est pas déjà utilisé par une autre application 
 
 2. Possibilités de filtrer en fonction du nom
 
-3. Possibilités de modifier le nom et type d'un pokemon
+3. Possibilités de modifier le nom et le type d'un pokemon
