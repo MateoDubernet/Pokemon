@@ -4,8 +4,8 @@
 Il s'agit d'un projet réaliser durant mon alternance dans le but de me former aux framework Angular. Ce projet utilise l'api PokéAPI pour récupérer une liste de Pokemon et l'afficher.
 
 ### Stack Technique
-- **Angular**.
-- **Docker**.
+- **Angular**
+- **Docker**
 
 ---
 
